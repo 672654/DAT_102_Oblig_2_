@@ -41,7 +41,7 @@ public class Sortering_oppg_1 {
 		Random tilfeldig = new Random();
 		
 		
-		Integer[] rTab = new Integer[8];
+		Integer[] rTab = new Integer[10];
 		for (int i = 0; i < rTab.length; i++) {
 			rTab[i] = tilfeldig.nextInt(0,10);
 		}
