@@ -40,18 +40,21 @@ public class Sortering_oppg_1 {
 
 		Random tilfeldig = new Random();
 		
+		
 		Integer[] rTab = new Integer[8];
 		for (int i = 0; i < rTab.length; i++) {
 			rTab[i] = tilfeldig.nextInt(0,10);
 		}
 		Integer[]rTab2 = rTab;
 
+		
 		System.out.println("Usortert tabell:");
 		for(Integer i: rTab) {
 			System.out.print(i+" - ");
 		}
 		System.out.println("\n");
 
+		
 		long startTime = System.nanoTime();
 		insertionSort(rTab);
 		long endTime = System.nanoTime();
@@ -62,10 +65,12 @@ public class Sortering_oppg_1 {
 		long endTime2 = System.nanoTime();
 		long duration2 = ((endTime2 - startTime2));
 		
+		
 		for (Integer i : rTab) {
 			System.out.print(i + " - ");
 		}
 		System.out.println("\n1: KjoreTid i millisekunder = " + duration+"\n");
+		
 		
 		for (Integer i : rTab2) {
 			System.out.print(i + " - ");
