@@ -1,8 +1,10 @@
 package Sortering;
 
+import java.util.Random;
+
 public class Sortering_oppg_1 {
 // tes
-	private static <T extends Comparable<? super T>> void insertSort(T[] tabell) {
+	private static <T extends Comparable<? super T>> void insertionSort(T[] tabell) {
 
 		for (int i = 1; i < tabell.length; i++) {
 			T temp = tabell[i];
@@ -15,43 +17,40 @@ public class Sortering_oppg_1 {
 			tabell[j + 1] = temp;
 		}
 	}
+
 	private static <T extends Comparable<? super T>> void compare(T[] tabell, int indexS, int indexEnd) {
-		System.out.println("index "+indexS+" sammenlignet med index "+indexEnd+" = "+tabell[indexS].compareTo(tabell[indexEnd]));
+		System.out.println("index " + indexS + " sammenlignet med index " + indexEnd + " = "
+				+ tabell[indexS].compareTo(tabell[indexEnd]));
 	}
-	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-	
-		
-		
-		
-		Integer[] iTab = {2,1,4,3};
-		String[] sTab = { "Apple", "Orange", "Banana", "Ananas", "Raspberry" };
-		Boolean[] bTab = {true, false, false, false, true, true};
-	
-		long startTime = System.nanoTime();
-		insertSort(iTab);
-		long endTime = System.nanoTime();
-		long duration = ((endTime - startTime));// /1000000
 
-		insertSort(sTab);
-		insertSort(bTab);
+		Random tilfeldig = new Random();
 		
-		for (Integer i : iTab) {
-			System.out.print(i+" ");
+		Integer[] rTab = new Integer[10000];
+		for (int i = 0; i < rTab.length; i++) {
+			rTab[i]=tilfeldig.nextInt(10);
 		}
-		System.out.println("\nKjoreTid = "+duration);
+		Integer[] iTab = { 2, 1, 4, 3 };
+		String[] sTab = { "Apple", "Orange", "Banana", "Ananas", "Raspberry" };
+		Boolean[] bTab = { true, false, false, false, true, true };
+
 		
-		System.out.println("\n");
-		for (String i : sTab) {
-			System.out.print(i+" ");
+		for (Integer i : rTab) {
+			System.out.print(i + " - ");
 		}
-		
-		System.out.println("\n");
-		for (Boolean i : bTab) {
-			System.out.print(i + " ");
+		System.out.println("\n*");
+		long startTime = System.nanoTime();
+		insertionSort(rTab);
+		long endTime = System.nanoTime();
+		long duration = ((endTime - startTime)/1_000_000); // 1_000_000_000 for sekunder.
+		System.out.println();
+		for (Integer i : rTab) {
+			System.out.print(i + " - ");
 		}
-		
+		System.out.println();
+		System.out.println("\nKjoreTid i millisekunder = " + duration);
+
 	}
 }
