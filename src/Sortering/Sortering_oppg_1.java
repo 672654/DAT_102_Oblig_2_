@@ -28,7 +28,7 @@ public class Sortering_oppg_1 {
 
 		Random tilfeldig = new Random();
 		
-		Integer[] rTab = new Integer[10000];
+		Integer[] rTab = new Integer[80000];
 		for (int i = 0; i < rTab.length; i++) {
 			rTab[i]=tilfeldig.nextInt(10);
 		}
@@ -36,20 +36,14 @@ public class Sortering_oppg_1 {
 		String[] sTab = { "Apple", "Orange", "Banana", "Ananas", "Raspberry" };
 		Boolean[] bTab = { true, false, false, false, true, true };
 
-		
-		for (Integer i : rTab) {
-			System.out.print(i + " - ");
-		}
-		System.out.println("\n*");
+
 		long startTime = System.nanoTime();
 		insertionSort(rTab);
 		long endTime = System.nanoTime();
 		long duration = ((endTime - startTime)/1_000_000); // 1_000_000_000 for sekunder.
-		System.out.println();
 		for (Integer i : rTab) {
 			System.out.print(i + " - ");
 		}
-		System.out.println();
 		System.out.println("\nKjoreTid i millisekunder = " + duration);
 
 	}
