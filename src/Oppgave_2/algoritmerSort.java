@@ -106,8 +106,8 @@ public class algoritmerSort {
 
 		int mid = length / 2;
 		
-		T[] leftArr = (T[]) new Object[mid];
-		T[] rightArr = (T[]) new Object[length - mid];
+		T[] leftArr = (T[]) new Comparable[mid];
+		T[] rightArr = (T[]) new Comparable[length - mid];
 
 		
 		int i = 0;
@@ -117,7 +117,7 @@ public class algoritmerSort {
 			if (i < mid) {
 				leftArr[i] = arr[i];
 			} else {
-				rightArr[i] = arr[i];
+				rightArr[j] = arr[i];
 				j++;
 			}
 		}
