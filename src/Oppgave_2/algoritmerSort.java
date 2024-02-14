@@ -9,10 +9,11 @@ public class algoritmerSort {
 		// TODO Auto-generated method stub
 
 		Random tilfeldig = new Random();
-		int n = 10;
-		int antallMaalinger = 10;
+		int n = 1000;
+		int antallMaalinger = 100;
 		long totalTid = 0;
 		long maltTidGj = 0;
+		long c = 0;
 		
 		Integer[] tab = new Integer[n];
 		for (int i = 0; i<tab.length;i++) {
@@ -21,18 +22,20 @@ public class algoritmerSort {
 
 		for(int i = 0; i<antallMaalinger; i++) {
 		long startTime = System.nanoTime();
-	//	insertionSort(tab);
+		insertionSort(tab); //O(n^2)
 	//	selectionSort(tab);
 	//	quickSort(tab, 0, tab.length - 1);
-		mergeSort(tab);
+	//	mergeSort(tab);
 		long endTime = System.nanoTime();
 		long duration = ((endTime - startTime));//1_000_000); // 1_000_000_000 for sekunder.
 		totalTid = totalTid + duration;
 		}
 		maltTidGj = totalTid / antallMaalinger;
+		c = maltTidGj;
+		System.out.println("Insertion Sort: O(n^2)");
+		System.out.print("N  		-  Antall Maalinger -	Gj.snitt tid  -  Teoretisk tid: c*(n^2)\n");
 		
-		System.out.print("n  -  Antall Maalinger  -  Gj.snitt tid  -  Teoretisk tid\n");
-		System.out.print(n+" -	   "+antallMaalinger+" 		-	"+maltTidGj+"	 -	"+"x");
+		System.out.print(n+" 		-  "+antallMaalinger+"		    -	"+maltTidGj+"	      -	 "+c*(n^2));
 		
 //		System.out.println();
 //		for (Integer i : tab) {
