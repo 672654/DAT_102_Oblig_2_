@@ -1,5 +1,7 @@
 package Oppgave_2;
 
+import java.lang.reflect.Array;
+
 public class algoritmerSort {
 
 	public static void main(String[] args) {
@@ -11,10 +13,11 @@ public class algoritmerSort {
 		}
 
 		System.out.println("\n\n sort:");
-	//	insertionSort(tab);
-		selectionSort(tab);
-	//	quickSort(tab, 0, tab.length - 1);
-		
+		// insertionSort(tab);
+		// selectionSort(tab);
+		// quickSort(tab, 0, tab.length - 1);
+		mergeSort(tab);
+
 		for (Integer i : tab) {
 			System.out.print(i + "  ");
 		}
@@ -67,18 +70,18 @@ public class algoritmerSort {
 		if (end <= start) { // base.
 			return;
 		}
-		int pivot = pivot(arr, start, end);
+		int pivot = finnPivot(arr, start, end);
 		quickSort(arr, start, pivot - 1);
 		quickSort(arr, pivot + 1, end);
 
 	}
 
-	private static <T extends Comparable<? super T>> int pivot(T[] arr, int start, int end) {
-		
+	private static <T extends Comparable<? super T>> int finnPivot(T[] arr, int start, int end) {
+
 		T pivot = arr[end];
-		int i = start -1;
-		
-		for (int j = start; j <= end-1; j++) {
+		int i = start - 1;
+
+		for (int j = start; j <= end - 1; j++) {
 			if (arr[j].compareTo(pivot) < 0) {
 				i++;
 				T temp = arr[i];
@@ -90,11 +93,67 @@ public class algoritmerSort {
 		T temp = arr[i];
 		arr[i] = arr[end];
 		arr[end] = temp;
-		
+
 		return i;
 	}
 
 	private static <T extends Comparable<? super T>> void mergeSort(T[] arr) {
 
+		int length = arr.length;
+		if (length <= 1) { // base
+			return;
+		}
+
+		int mid = length / 2;
+		
+		T[] leftArr = (T[]) new Object[mid];
+		T[] rightArr = (T[]) new Object[length - mid];
+
+		
+		int i = 0;
+		int j = 0;
+
+		for (; i < length; i++) {
+			if (i < mid) {
+				leftArr[i] = arr[i];
+			} else {
+				rightArr[i] = arr[i];
+				j++;
+			}
+		}
+		mergeSort(leftArr);
+		mergeSort(rightArr);
+		merge(leftArr, rightArr, arr);
+	}
+
+	private static <T extends Comparable<? super T>> void merge(T[] leftArr, T[] rightArr, T[] arr) {
+
+		int leftS = arr.length / 2;
+		int rightS = arr.length - leftS;
+		int i = 0, l = 0, r = 0;
+		
+		
+		while (l < leftS && r < rightS) {
+			if(leftArr[l].compareTo(rightArr[r])<0) {
+				arr[i] = leftArr[l];
+				i++;
+				l++;
+			}
+			else {
+				arr[i] = rightArr[r];
+				i++;
+				r++;
+			}
+		}
+		while(l<leftS) {
+			arr[i] = leftArr[l];
+			i++;
+			l++;
+		}
+		while(r<rightS) {
+			arr[i]=rightArr[r];
+			i++;
+			r++;
+		}
 	}
 }
