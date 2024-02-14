@@ -1,26 +1,44 @@
 package Oppgave_2;
 
 import java.lang.reflect.Array;
+import java.util.Random;
 
 public class algoritmerSort {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Integer[] tab = { 2, 1, 5, 101, 3, 1, 7, 4, 9, 33, 20, 16, 100, 99, 102 };
-		for (Integer i : tab) {
-			System.out.print(i + "  ");
+		Random tilfeldig = new Random();
+		int n = 10;
+		int antallMaalinger = 10;
+		long totalTid = 0;
+		long maltTidGj = 0;
+		
+		Integer[] tab = new Integer[n];
+		for (int i = 0; i<tab.length;i++) {
+			tab[i]= tilfeldig.nextInt(0,10);
 		}
 
-		System.out.println("\n\nsorted:");
+		for(int i = 0; i<antallMaalinger; i++) {
+		long startTime = System.nanoTime();
 	//	insertionSort(tab);
 	//	selectionSort(tab);
 	//	quickSort(tab, 0, tab.length - 1);
 		mergeSort(tab);
-
-		for (Integer i : tab) {
-			System.out.print(i + "  ");
+		long endTime = System.nanoTime();
+		long duration = ((endTime - startTime));//1_000_000); // 1_000_000_000 for sekunder.
+		totalTid = totalTid + duration;
 		}
+		maltTidGj = totalTid / antallMaalinger;
+		
+		System.out.print("n  -  Antall Maalinger  -  Gj.snitt tid  -  Teoretisk tid\n");
+		System.out.print(n+" -	   "+antallMaalinger+" 		-	"+maltTidGj+"	 -	"+"x");
+		
+//		System.out.println();
+//		for (Integer i : tab) {
+//			System.out.print(i + "  ");
+//		}
+		
 
 	}
 
