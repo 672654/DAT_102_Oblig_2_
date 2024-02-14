@@ -12,10 +12,10 @@ public class algoritmerSort {
 			System.out.print(i + "  ");
 		}
 
-		System.out.println("\n\n sort:");
-		// insertionSort(tab);
-		// selectionSort(tab);
-		// quickSort(tab, 0, tab.length - 1);
+		System.out.println("\n\nsorted:");
+	//	insertionSort(tab);
+	//	selectionSort(tab);
+	//	quickSort(tab, 0, tab.length - 1);
 		mergeSort(tab);
 
 		for (Integer i : tab) {
@@ -24,7 +24,7 @@ public class algoritmerSort {
 
 	}
 
-	private static <T extends Comparable<? super T>> void insertionSort(T[] arr) {
+	static <T extends Comparable<? super T>> void insertionSort(T[] arr) {
 		// 1: første element er sortert. Begynn i index 0+1. opprett variabel med index
 		// smallest.
 		// 2: gå igjennom tabellen og sjekk om elementene til venstre er mindre.
@@ -43,7 +43,7 @@ public class algoritmerSort {
 		}
 	}
 
-	private static <T extends Comparable<? super T>> void selectionSort(T[] arr) {
+	static <T extends Comparable<? super T>> void selectionSort(T[] arr) {
 		// step 1: start til venstre i tab. opprett smallest som index pos med minste
 		// verdi.
 		// step 2: gå igjennom tabellen og let etter mindre verdi. oppdater smallest
@@ -65,7 +65,7 @@ public class algoritmerSort {
 
 	}
 
-	private static <T extends Comparable<? super T>> void quickSort(T[] arr, int start, int end) {
+	static <T extends Comparable<? super T>> void quickSort(T[] arr, int start, int end) {
 
 		if (end <= start) { // base.
 			return;
@@ -97,7 +97,7 @@ public class algoritmerSort {
 		return i;
 	}
 
-	private static <T extends Comparable<? super T>> void mergeSort(T[] arr) {
+	static <T extends Comparable<? super T>> void mergeSort(T[] arr) {
 
 		int length = arr.length;
 		if (length <= 1) { // base
