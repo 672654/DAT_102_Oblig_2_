@@ -21,23 +21,49 @@ class algoritmerSortTest {
 
 	@Test
 	void testInsertionSort() {
+		assertNotEquals(tab[0],sortertTab[0]);
+		
 		algoritmerSort.insertionSort(tab);
 		assertEquals(tab[tab.length-1],9);
+		
+		for(int i = 0; i < tab.length; i++) {
+			assertEquals(tab[i],sortertTab[i]);
+		}
 	}
 
 	@Test
 	void testSelectionSort() {
-		fail("Not yet implemented");
+		assertNotEquals(tab[0],sortertTab[0]);
+		
+		algoritmerSort.selectionSort(tab);
+		assertEquals(tab[tab.length-1],9);
+		
+		for(int i = 0; i < tab.length; i++) {
+			assertEquals(tab[i],sortertTab[i]);
+		}
 	}
+	
 
 	@Test
 	void testQuickSort() {
-		fail("Not yet implemented");
+		assertNotEquals(tab[0],sortertTab[0]);
+		algoritmerSort.quickSort(tab,0,tab.length-1);
+		assertEquals(tab[tab.length-1],9);
+		
+		for(int i = 0; i < tab.length; i++) {
+			assertEquals(tab[i],sortertTab[i]);
+		}
 	}
 
 	@Test
 	void testMergeSort() {
-		fail("Not yet implemented");
+		assertNotEquals(tab[0],sortertTab[0]);
+		algoritmerSort.mergeSort(tab);
+		assertEquals(tab[tab.length-1],9);
+		
+		for(int i = 0; i < tab.length; i++) {
+			assertEquals(tab[i],sortertTab[i]);
+		}
 	}
 
 }
